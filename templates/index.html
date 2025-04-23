@@ -2,16 +2,73 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Moje Osobní Stránka</title>
+    <title>Jan Novák | Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <!-- Navigační lišta -->
+    <nav>
+        <ul>
+            <li><a href="#about">O mně</a></li>
+            <li><a href="#skills">Dovednosti</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <h1>Ahoj, já jsem Jan Novák!</h1>
-        <p>Vítej na mé osobní stránce. Jsem vývojář a nadšenec do technologií.</p>
-        
-        <button onclick="window.location.href='mailto:jan@example.com'">Kontaktuj mě</button>
+
+        <!-- O mně -->
+        <section id="about">
+            <h1>Jan Novák</h1>
+            <p>Jsem vývojář s vášní pro weby, automatizaci a moderní technologie. Tvořím weby s čistým designem a funkčností.</p>
+        </section>
+
+        <!-- Dovednosti -->
+        <section id="skills">
+            <h2>Dovednosti</h2>
+            <canvas id="skillsChart" width="400" height="400"></canvas>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <p>Najdeš mě na:</p>
+            <div class="social-icons">
+                <a href="https://github.com/tvoje-uzivatelske-jmeno" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/tvoje-profil" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:jan@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
     </div>
+
+    <script>
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Python', 'HTML/CSS', 'Flask', 'Git'],
+                datasets: [{
+                    data: [30, 25, 20, 25],
+                    backgroundColor: ['#0078D4', '#ff6f61', '#34a853', '#fbbc05'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
