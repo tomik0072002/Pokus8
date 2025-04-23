@@ -2,11 +2,16 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Osobní Stránka</title>
+    <title>Moje Osobní Stránka</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Ahoj, já jsem Tomáš!</h1>
-    <p>Vítej na mé osobní stránce.</p>
+    <div class="container">
+        <h1>Ahoj, já jsem Jan Novák!</h1>
+        <p>Vítej na mé osobní stránce. Jsem vývojář a nadšenec do technologií.</p>
+        
+        <button onclick="window.location.href='mailto:jan@example.com'">Kontaktuj mě</button>
+    </div>
 </body>
 </html>
